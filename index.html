@@ -1,28 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>👋 Gianne Jaurigue</title>
-  <meta name="description" content="Portfolio of Gianne Jaurigue, Senior Design Engineer at Dyson." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <!-- Using reliable Font Awesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-yssO5u+4CsBj9AJhbWOSq0b/4ytdtPqF3+ayDYwNEfZFd3yqtdTu2R3e5I83ZqLEoHgNm7GQqlBPvj0wG3cY7g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #111111;
-      --muted: #555555;
-      --accent: #000000;
-      --card: #f5f5f5;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gianne Jaurigue 👋</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>">
+  
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
-    * { box-sizing: border-box; scroll-behavior: smooth; }
+  <style>
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: #f8f8f8;
+      color: #111;
+      overflow-x: hidden;
     }
 
     header {
@@ -30,204 +24,154 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      padding: 20px 0;
-      text-align: center;
-      border-bottom: 1px solid #e0e0e0;
-      transition: all 0.3s ease;
-    }
-
-    header.shrink {
-      padding: 10px 0;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(15px);
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 24px;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(8px);
+      z-index: 10;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #e5e5e5;
       font-weight: 700;
-      transition: font-size 0.3s ease;
+      font-size: 1.2rem;
     }
 
-    header.shrink h1 { font-size: 20px; }
+    main { padding-top: 100px; }
 
-    header p {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 14px;
+    section {
+      padding: 6rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
     }
 
-    main {
-      padding-top: 140px;
-    }
+    section.visible { opacity: 1; transform: translateY(0); }
 
-    section.hero {
-      min-height: 80vh;
+    .hero {
+      text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 0 20px;
-      animation: fadeIn 1s ease-in-out;
+      min-height: 80vh;
     }
 
-    section.hero h2 {
-      font-size: 40px;
-      margin: 0;
+    .hero h1 {
+      font-size: 3rem;
       font-weight: 700;
+      margin-bottom: 0.5rem;
     }
 
-    section.hero p {
-      color: var(--muted);
-      max-width: 600px;
-      margin: 12px 0 24px;
-      animation: fadeUp 1.2s ease forwards;
+    .hero h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #555;
+      margin-bottom: 2rem;
     }
 
-    a.button {
-      background: var(--accent);
+    .hero button {
+      padding: 0.8rem 2rem;
+      border: 1.5px solid #000;
+      background: transparent;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .hero button:hover {
+      background: #000;
       color: #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: opacity 0.2s;
-      animation: fadeUp 1.5s ease forwards;
     }
 
-    a.button:hover { opacity: 0.8; }
-
-    section#projects {
-      padding: 80px 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    h3 {
+    .about h2 {
+      font-size: 2rem;
       text-align: center;
-      font-size: 32px;
-      margin-bottom: 40px;
+      margin-bottom: 2rem;
     }
 
-    .grid {
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    #projects h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
 
     .project {
-      background: var(--card);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .project.show {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.6s ease-out;
-    }
-
-    .project:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .project img {
-      width: 100%;
       height: 200px;
-      object-fit: cover;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
     }
 
-    .project-info {
-      padding: 16px;
-    }
+    .project:hover { transform: translateY(-4px); }
 
-    .project-info h4 {
-      margin: 0 0 8px;
-      font-size: 20px;
-    }
-
-    .project-info p {
-      margin: 0;
-      font-size: 14px;
-      color: var(--muted);
-    }
-
-    section#contact {
+    #contact {
       text-align: center;
-      padding: 100px 20px;
-      animation: fadeIn 2s ease-in-out;
+      padding-bottom: 6rem;
     }
 
-    section#contact h3 {
-      margin-bottom: 16px;
-      font-size: 28px;
+    .contact h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
     }
 
-    section#contact p {
-      color: var(--muted);
-      margin-bottom: 24px;
-    }
-
-    .social-icon {
-      font-size: 48px;
-      color: var(--accent);
-      transition: all 0.3s ease;
+    .linkedin-icon {
       display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg') no-repeat center;
+      background-size: contain;
+      filter: brightness(0);
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
 
-    .social-icon:hover {
+    .linkedin-icon:hover {
       transform: scale(1.1);
-      color: #0077b5; /* LinkedIn blue */
-      text-shadow: 0 0 8px rgba(0, 119, 181, 0.4);
+      filter: brightness(0) saturate(100%) invert(18%) sepia(91%) saturate(3112%) hue-rotate(202deg) brightness(97%) contrast(99%);
     }
 
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--muted);
-      font-size: 14px;
-      border-top: 1px solid #e0e0e0;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero h2 { font-size: 1.2rem; }
+      section { padding: 4rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Gianne Jaurigue</h1>
-    <p>Senior Design Engineer @ Dyson</p>
-  </header>
+  <header>Gianne Jaurigue</header>
 
   <main>
-    <section class="hero">
-      <h2><strong>Turning Ideas into Products</strong>
-        <p>Specialized in taking concepts from initial design through NPI and NPD, ensuring seamless transition to large-scale manufacturing.</p>
-        <p>Skilled in <strong>3D CAD modeling (NX)</strong>, detailed engineering drawings, and <strong>tolerance stack analyses</strong>, bringing precision and efficiency to every stage of development.</p>
-        <p>Experience in <strong>Design for Manufacturing and Assembly (DfMA)</strong> enables me to optimize processes, reduce costs, and deliver robust, scalable solutions.</p>
-      <a href="#projects" class="button">View My Projects ↓</a>
+    <section class="hero" id="home">
+      <h1>Senior Design Engineer @ Dyson</h1>
+      <h2>Turning concepts into products, from design to large-scale manufacturing.</h2>
+      <button onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'});">View My Work ↓</button>
+    </section>
+
+    <section class="about" id="about">
+      <h2>About</h2>
+      <p><strong>Specialized in taking concepts</strong> from initial design through NPI and NPD, ensuring seamless transition to large-scale manufacturing.</p>
+      <p><strong>Skilled in 3D CAD modeling (NX)</strong>, detailed engineering drawings, and tolerance stack analyses for precision and efficiency.</p>
+      <p>Experienced in <strong>Design for Manufacturing and Assembly (DfMA)</strong>, optimizing processes, reducing costs, and delivering robust, scalable solutions.</p>
     </section>
 
     <section id="projects">
-      <h3>Projects</h3>
-      <div class="grid">
+      <h2>Projects</h2>
+      <div class="projects">
         <div class="project"><img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/resolve//hair-care/hair-stylers/hs09/590_HS09_ATTACHMENT_AIRSMOOTH.jpg?$responsive$&fmt=png-alpha&cropPathE=desktop&fit=stretch,1&wid=1152" alt="Dyson Coanda2x' AirSmooth2x"><div class="project-info"><h4>Dyson Coanda2x AirSmooth2x</h4><p></p></div></div>
         <div class="project"><img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/973710-01.png?scl=1" alt="Dyson Airwrap Blade Concentrator"><div class="project-info"><h4>Dyson Airwrap Blade Concentrator</h4><p></p></div></div>
         <div class="project"><img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/services-and-support/tools/696/floor-dock-multi/Product_Leap_Accessories_PDP_Hero_Floor_dok_1-V2.jpg?$responsive$&cropPathE=desktop&fit=stretch,1&wid=3840" alt="Dyson Floor Dok™ Multi"><div class="project-info"><h4>Dyson Floor Dok™ Multi</h4><p></p></div></div>
@@ -236,42 +180,24 @@
       </div>
     </section>
 
-    <section id="contact">`
-      <h2>Let's Connect</h2>
-      <a href="https://www.linkedin.com/in/giannejaurigue/" target="_blank">
-  <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/xbu/linkedin-revised-brand-guidelines/linkedin-logo/fg/brandg-linkedinlogo-hero-logo-dsk-v01.png/jcr:content/renditions/brandg-linkedinlogo-hero-logo-dsk-v01-2x.png" alt="LinkedIn Logo" style="height:50px;">
-</a>
+    <section id="contact">
+      <h2>Let’s Connect on LinkedIn</h2>
+      <a href="https://www.linkedin.com/in/giannejaurigue" target="_blank" aria-label="LinkedIn">
+        <span class="linkedin-icon"></span>
+      </a>
     </section>
-    
   </main>
 
-  <footer>
-    © <span id="year"></span> Gianne Jaurigue. All rights reserved.
-  </footer>
-
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Fade-in animation on scroll
-    const observer = new IntersectionObserver((entries) => {
+    // Fade-up animation for sections
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
+        if (entry.isIntersecting) entry.target.classList.add("visible");
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.2 });
 
-    document.querySelectorAll('.project').forEach((el) => observer.observe(el));
-
-    // Shrink header on scroll
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('shrink');
-      } else {
-        header.classList.remove('shrink');
-      }
-    });
+    sections.forEach(section => observer.observe(section));
   </script>
 
 </body>
