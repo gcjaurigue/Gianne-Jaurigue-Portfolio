@@ -12,6 +12,7 @@
     --muted:#555;
     --accent:#000;
     --max-width:1200px;
+    --light-gray:#f7f7f7;
   }
 
   html, body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",Roboto,"Segoe UI",system-ui,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
@@ -26,13 +27,12 @@
     padding:20px 24px;display:flex;justify-content:center;transition:all .3s ease;
   }
   header.shrink{padding:10px 24px;}
-  header .name{font-weight:700;font-size:1rem;}
+  header .name{font-weight:700;font-size:1.2rem;}
 
   main{margin-top:84px;max-width:var(--max-width);margin-left:auto;margin-right:auto;}
 
   /* Hero */
-  .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:120px 24px 80px;}
-  .hero .role{color:var(--muted);margin-bottom:8px;}
+  .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:120px 24px 60px;background:var(--bg);}
   .hero h1{font-size:3rem;margin:0 0 16px;font-weight:800;}
   .hero p{color:var(--muted);max-width:650px;line-height:1.6;margin-bottom:24px;}
   .hero .cta{
@@ -42,9 +42,11 @@
   .hero .cta:hover{background:var(--accent);color:#fff;transform:translateY(-2px);}
 
   /* Project Panels */
-  .project-panel{display:flex;align-items:center;justify-content:space-between;padding:80px 24px;gap:48px;flex-wrap:wrap;opacity:0;transform:translateY(40px);transition:all .9s cubic-bezier(.2,.9,.2,1);}
-  .project-panel.visible{opacity:1;transform:translateY(0);}
+  .project-panel{display:flex;align-items:center;justify-content:space-between;padding:60px 24px;gap:36px;flex-wrap:wrap;opacity:0;transform:translateY(30px);transition:all .9s cubic-bezier(.2,.9,.2,1);}
   .project-panel:nth-child(even){flex-direction:row-reverse;}
+  .project-panel:nth-child(odd){background:var(--bg);}
+  .project-panel:nth-child(even){background:var(--light-gray);}
+  .project-panel.visible{opacity:1;transform:translateY(0);}
 
   .project-panel .text{flex:1 1 0;min-width:280px;}
   .project-panel .text h2{margin-top:0;font-size:2rem;font-weight:700;}
@@ -55,7 +57,7 @@
   .project-panel .image:hover img{transform:scale(1.03);}
 
   /* Contact */
-  #contact{padding:80px 24px;text-align:center;}
+  #contact{padding:80px 24px;text-align:center;background:var(--bg);}
   #contact h3{font-size:1.4rem;margin-bottom:12px;font-weight:700;}
   #contact p{color:var(--muted);max-width:650px;margin:0 auto 24px;text-align:center;}
   .linkedin{
@@ -71,15 +73,14 @@
 </head>
 <body>
 
-<header id="header"><div class="name">Gianne Jaurigue — Senior Design Engineer @ Dyson</div></header>
+<header id="header"><div class="name">Gianne Jaurigue</div></header>
 
 <main>
   <!-- Hero -->
   <section class="hero">
-    <div class="role">Senior Design Engineer @ Dyson</div>
     <h1>Designing Products — From Concept to Production</h1>
     <p>Specialized in taking concepts from initial design through NPI & NPD, ensuring seamless transition to large-scale manufacturing. Skilled in 3D CAD (NX), detailed engineering drawings, and tolerance stack analysis. I focus on DfMA to deliver robust, production-ready solutions.</p>
-    <button class="cta" onclick="document.querySelectorAll('.project-panel')[0].scrollIntoView({behavior:'smooth'})">View My Work ↓</button>
+    <button class="cta" onclick="document.querySelectorAll('.project-panel')[0].scrollIntoView({behavior:'smooth'})">Projects I've Worked With ↓</button>
   </section>
 
   <!-- Projects -->
