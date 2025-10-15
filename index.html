@@ -3,264 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gianne Jaurigue</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>">
-
-<!-- Inter Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-
+<title>Gianne Jaurigue 👋</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E👋%3C/text%3E%3C/svg%3E">
 <style>
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #f8f8f8;
-  color: #111;
-  overflow-x: hidden;
-}
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(8px);
-  z-index: 10;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #e5e5e5;
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-main { padding-top: 100px; }
-
-section {
-  padding: 4rem 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-section.visible { opacity: 1; transform: translateY(0); }
-
-.hero-about {
-  display: flex;
-  gap: 4rem;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.hero {
-  flex: 1 1 350px;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.hero h2 {
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #555;
-  margin-bottom: 2rem;
-}
-
-.hero button {
-  padding: 0.8rem 2rem;
-  border: 1.5px solid #000;
-  background: transparent;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.hero button:hover {
-  background: #000;
-  color: #fff;
-}
-
-.about {
-  flex: 1 1 350px;
-  text-align: justify;
-}
-
-.about h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.about p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-#projects h2 {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.project {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.project:hover { transform: translateY(-4px); }
-
-.project img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.project-info {
-  padding: 12px;
-}
-
-.project-info h3 {
-  margin: 0;
-  font-size: 1.1rem;
-}
-
-.project-info p {
-  margin: 4px 0 0;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-#contact {
-  text-align: center;
-  padding-bottom: 6rem;
-}
-
-.contact h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-}
-
-.linkedin-icon {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  background: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg') no-repeat center;
-  background-size: contain;
-  filter: brightness(0);
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.linkedin-icon:hover {
-  transform: scale(1.1);
-  filter: brightness(0) saturate(100%) invert(18%) sepia(91%) saturate(3112%) hue-rotate(202deg) brightness(97%) contrast(99%);
-}
-
-@media (max-width: 900px) {
-  .hero-about {
-    flex-direction: column;
-    gap: 2rem;
+  :root{
+    --bg:#fff;
+    --text:#111;
+    --muted:#555;
+    --accent:#000;
+    --max-width:1200px;
   }
-  .hero h1 { font-size: 2.2rem; }
-  .hero h2 { font-size: 1.2rem; }
-}
+
+  html, body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",Roboto,"Segoe UI",system-ui,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+  *, *::before, *::after{box-sizing:border-box;}
+  a{text-decoration:none;color:inherit;}
+  img{display:block;width:100%;height:auto;}
+
+  header{
+    position:fixed;top:0;left:0;width:100%;z-index:1000;
+    background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    padding:20px 24px;display:flex;justify-content:center;transition:all .3s ease;
+  }
+  header.shrink{padding:10px 24px;}
+  header .name{font-weight:700;font-size:1rem;}
+
+  main{margin-top:84px;max-width:var(--max-width);margin-left:auto;margin-right:auto;}
+
+  /* Hero */
+  .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:120px 24px 80px;}
+  .hero .role{color:var(--muted);margin-bottom:8px;}
+  .hero h1{font-size:3rem;margin:0 0 16px;font-weight:800;}
+  .hero p{color:var(--muted);max-width:650px;line-height:1.6;margin-bottom:24px;}
+  .hero .cta{
+    padding:12px 28px;border-radius:999px;border:1.5px solid var(--accent);
+    font-weight:600;cursor:pointer;transition:all .3s ease;
+  }
+  .hero .cta:hover{background:var(--accent);color:#fff;transform:translateY(-2px);}
+
+  /* Project Panels */
+  .project-panel{display:flex;align-items:center;justify-content:space-between;padding:80px 24px;gap:48px;flex-wrap:wrap;opacity:0;transform:translateY(40px);transition:all .9s cubic-bezier(.2,.9,.2,1);}
+  .project-panel.visible{opacity:1;transform:translateY(0);}
+  .project-panel:nth-child(even){flex-direction:row-reverse;}
+
+  .project-panel .text{flex:1 1 0;min-width:280px;}
+  .project-panel .text h2{margin-top:0;font-size:2rem;font-weight:700;}
+  .project-panel .text p{color:var(--muted);line-height:1.6;text-align:justify;}
+
+  .project-panel .image{flex:1 1 0;min-width:280px;overflow:hidden;border-radius:12px;}
+  .project-panel .image img{transition:transform .6s ease;}
+  .project-panel .image:hover img{transform:scale(1.03);}
+
+  /* Contact */
+  #contact{padding:80px 24px;text-align:center;}
+  #contact h3{font-size:1.4rem;margin-bottom:12px;font-weight:700;}
+  #contact p{color:var(--muted);max-width:650px;margin:0 auto 24px;text-align:center;}
+  .linkedin{
+    display:inline-block;width:56px;height:56px;background-image:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg');
+    background-size:contain;background-repeat:no-repeat;filter:brightness(0);transition:transform .22s ease,filter .22s ease;
+  }
+  .linkedin:hover{transform:scale(1.06);filter:invert(22%) sepia(91%) saturate(3112%) hue-rotate(202deg) brightness(97%) contrast(99%);}
+
+  /* Responsive */
+  @media(max-width:900px){.project-panel{flex-direction:column;gap:32px;}}
+  @media(max-width:500px){.hero h1{font-size:2rem;}}
 </style>
 </head>
 <body>
 
-<header>Gianne Jaurigue</header>
+<header id="header"><div class="name">Gianne Jaurigue — Senior Design Engineer @ Dyson</div></header>
 
 <main>
-  <!-- Hero + About Section -->
-  <section class="hero-about" id="home">
-    <div class="hero">
-      <h1>Senior Design Engineer @ Dyson</h1>
-      <h2>Turning concepts into products, from design to large-scale manufacturing.</h2>
-      <button onclick="document.querySelector('#projects').scrollIntoView({behavior:'smooth'});">View My Projects ↓</button>
-    </div>
-    <div class="about">
-      <h2>About</h2>
-      <p><strong>Specialized in taking concepts</strong> from initial design through NPI and NPD, ensuring seamless transition to large-scale manufacturing.</p>
-      <p><strong>Skilled in 3D CAD modeling (NX)</strong>, detailed engineering drawings, and tolerance stack analyses for precision and efficiency.</p>
-      <p>Experienced in <strong>Design for Manufacturing and Assembly (DfMA)</strong>, optimizing processes, reducing costs, and delivering robust, scalable solutions.</p>
-    </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="role">Senior Design Engineer @ Dyson</div>
+    <h1>Designing Products — From Concept to Production</h1>
+    <p>Specialized in taking concepts from initial design through NPI & NPD, ensuring seamless transition to large-scale manufacturing. Skilled in 3D CAD (NX), detailed engineering drawings, and tolerance stack analysis. I focus on DfMA to deliver robust, production-ready solutions.</p>
+    <button class="cta" onclick="document.querySelectorAll('.project-panel')[0].scrollIntoView({behavior:'smooth'})">View My Work ↓</button>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Projects -->
   <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project">
+    <div class="project-panel">
+      <div class="text">
+        <h2>Dyson Coanda2x — AirSmooth2x</h2>
+        <p>Conducted tolerance stack analysis for assembly fitting and interaction. Implemented design improvements to enhance assembly robustness.</p>
+      </div>
+      <div class="image">
         <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/resolve//hair-care/hair-stylers/hs09/590_HS09_ATTACHMENT_AIRSMOOTH.jpg" alt="Dyson Coanda2x AirSmooth2x">
-        <div class="project-info">
-          <h3>Dyson Coanda2x AirSmooth2x</h3>
-          <p class="justified-text">Conducted tolerance stack analysis for assembly fitting and interaction. Implemented design improvements to enhance assembly robustness.</p>
-        </div>
       </div>
-      <div class="project">
+    </div>
+
+    <div class="project-panel">
+      <div class="text">
+        <h2>Dyson Airwrap — Blade Concentrator</h2>
+        <p>Led the design from concept through to mass production, owning the tolerance stack assembly to ensure proper fit and interaction with the Airwrap machine. Iterated designs to meet performance and reliability targets.</p>
+      </div>
+      <div class="image">
         <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/973710-01.png" alt="Dyson Airwrap Blade Concentrator">
-        <div class="project-info">
-          <h3>Dyson Airwrap Blade Concentrator</h3>
-          <p class="justified-text">Led the design from concept through to mass production, taking full ownership of the tolerance stack assembly to ensure proper fit and interaction with the Airwrap machine. Iterated designs as needed to meet performance targets.</p>
-        </div>
       </div>
-      <div class="project">
-        <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/services-and-support/tools/696/floor-dock-multi/Product_Leap_Accessories_PDP_Hero_Floor_dok_1-V2.jpg" alt="Dyson Floor Dok™ Multi">
-        <div class="project-info">
-          <h3>Dyson Floor Dok™ Multi</h3>
-          <p class="justified-text">Ensured the design was optimised for manufacturability and assembly by conducting tolerance stack analyses and investigative tests.</p>
-        </div>
+    </div>
+
+    <div class="project-panel">
+      <div class="text">
+        <h2>Dyson Floor Dok™ Multi</h2>
+        <p>Ensured design optimized for manufacturability and assembly by performing tolerance stack analyses and investigative tests; focused on reliable interaction and serviceability.</p>
       </div>
-      <div class="project">
+      <div class="image">
+        <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/services-and-support/tools/696/floor-dock-multi/Product_Leap_Accessories_PDP_Hero_Floor_dok_1-V2.jpg" alt="Dyson Floor Dok Multi">
+      </div>
+    </div>
+
+    <div class="project-panel">
+      <div class="text">
+        <h2>Dyson Awkward Gap Tool</h2>
+        <p>Conducted tolerance stack analysis to ensure function and fit in constrained assembly spaces; iterated geometry to simplify tooling and assembly steps.</p>
+      </div>
+      <div class="image">
         <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/696/primary/972141-01.png" alt="Dyson Awkward Gap Tool">
-        <div class="project-info">
-          <h3>Dyson Floor Dok™ Multi</h3>
-          <p class="justified-text">Conducted tolerance stack analysis to ensure proper function and fitting.</p>
-        </div>
       </div>
-      <div class="project">
-        <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/972163-01.png" alt="Dyson Awkward Gap Tool">
-        <div class="project-info">
-          <h3>Dyson Detangling Cleanerhead</h3>
-          <p class="justified-text">Conducted tolerance stack analysis to ensure proper function and fitting.</p>
-        </div>
+    </div>
+
+    <div class="project-panel">
+      <div class="text">
+        <h2>Dyson Detangling Cleanerhead</h2>
+        <p>Conducted tolerance stack analysis and design adjustments to improve engagement, wear behaviour, and long-term serviceability.</p>
+      </div>
+      <div class="image">
+        <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/972163-01.png" alt="Dyson Detangling Cleanerhead">
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact">
-    <h2>Let’s Connect on LinkedIn</h2>
-    <a href="https://www.linkedin.com/in/giannejaurigue" target="_blank" aria-label="LinkedIn">
-      <span class="linkedin-icon"></span>
-    </a>
+    <h3>Let’s Connect</h3>
+    <p>Interested in collaborating or learning more about my work? Reach out on LinkedIn — I reply to relevant messages.</p>
+    <a class="linkedin" href="https://www.linkedin.com/in/giannejaurigue" target="_blank" aria-label="LinkedIn"></a>
   </section>
 </main>
 
 <script>
-  // Fade-up animation for sections
-  const sections = document.querySelectorAll("section");
-  const observer = new IntersectionObserver(entries => {
+  // Fade-in/reveal
+  const panels = document.querySelectorAll('.project-panel, .hero');
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("visible");
+      if(entry.isIntersecting){entry.target.classList.add('visible');} 
+      else{entry.target.classList.remove('visible');}
     });
-  }, { threshold: 0.2 });
+  }, {threshold:0.15});
+  panels.forEach(p=>observer.observe(p));
 
-  sections.forEach(section => observer.observe(section));
+  // Header shrink on scroll
+  const header = document.getElementById('header');
+  let lastY=0;
+  window.addEventListener('scroll',()=>{
+    if(window.scrollY>60) header.classList.add('shrink'); else header.classList.remove('shrink');
+    if(window.scrollY>lastY && window.scrollY>80){header.style.transform='translateY(-10px)';header.style.opacity='0.97';}
+    else{header.style.transform='translateY(0)';header.style.opacity='1';}
+    lastY=window.scrollY;
+  });
+
+  // Parallax on images
+  const images=document.querySelectorAll('.project-panel .image img');
+  window.addEventListener('scroll',()=>{
+    images.forEach(img=>{
+      const rect=img.getBoundingClientRect();
+      const y=rect.top/window.innerHeight;
+      img.style.transform=`scale(1.03) translateY(${y*20}px)`;
+    });
+  });
 </script>
 
 </body>
