@@ -6,69 +6,76 @@
 <title>Gianne Jaurigue 👋</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E👋%3C/text%3E%3C/svg%3E">
 <style>
-  :root{
-    --bg:#fff;
-    --text:#111;
-    --muted:#555;
-    --accent:#000;
-    --max-width:1200px;
-    --light-gray:#f7f7f7;
-  }
+:root{
+  --bg:#fff;
+  --text:#111;
+  --muted:#555;
+  --accent:#000;
+  --light-gray:#f7f7f7;
+  --max-width:1200px;
+}
 
-  html, body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",Roboto,"Segoe UI",system-ui,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
-  *, *::before, *::after{box-sizing:border-box;}
-  a{text-decoration:none;color:inherit;}
-  img{display:block;width:100%;height:auto;}
+html, body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",Roboto,"Segoe UI",system-ui,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;}
+*, *::before, *::after{box-sizing:border-box;}
+a{text-decoration:none;color:inherit;}
+img{display:block;width:100%;height:auto;}
 
-  header{
-    position:fixed;top:0;left:0;width:100%;z-index:1000;
-    background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(0,0,0,0.05);
-    padding:20px 24px;display:flex;justify-content:center;transition:all .3s ease;
-  }
-  header.shrink{padding:10px 24px;}
-  header .name{font-weight:700;font-size:1.2rem;}
+header{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,0,0,0.05);
+  padding:20px 24px;display:flex;justify-content:center;transition:all .3s ease;
+}
+header.shrink{padding:10px 24px;}
+header .name{font-weight:700;font-size:1.2rem;}
 
-  main{margin-top:84px;max-width:var(--max-width);margin-left:auto;margin-right:auto;}
+main{margin-top:84px;max-width:var(--max-width);margin-left:auto;margin-right:auto;padding:0 12px;}
 
-  /* Hero */
-  .hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:120px 24px 60px;background:var(--bg);}
-  .hero h1{font-size:3rem;margin:0 0 16px;font-weight:800;}
-  .hero p{color:var(--muted);max-width:650px;line-height:1.6;margin-bottom:24px;}
-  .hero .cta{
-    padding:12px 28px;border-radius:999px;border:1.5px solid var(--accent);
-    font-weight:600;cursor:pointer;transition:all .3s ease;
-  }
-  .hero .cta:hover{background:var(--accent);color:#fff;transform:translateY(-2px);}
+/* Hero */
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:120px 12px 60px;background:var(--bg);}
+.hero h1{font-size:3rem;margin:0 0 16px;font-weight:800;}
+.hero p{color:var(--muted);max-width:650px;line-height:1.6;margin-bottom:24px;}
+.hero .cta{
+  padding:12px 28px;border-radius:999px;border:1.5px solid var(--accent);
+  font-weight:600;cursor:pointer;transition:all .3s ease;
+}
+.hero .cta:hover{background:var(--accent);color:#fff;transform:translateY(-2px);}
 
-  /* Project Panels */
-  .project-panel{display:flex;align-items:center;justify-content:space-between;padding:60px 24px;gap:36px;flex-wrap:wrap;opacity:0;transform:translateY(30px);transition:all .9s cubic-bezier(.2,.9,.2,1);}
-  .project-panel:nth-child(even){flex-direction:row-reverse;}
-  .project-panel:nth-child(odd){background:var(--bg);}
-  .project-panel:nth-child(even){background:var(--light-gray);}
-  .project-panel.visible{opacity:1;transform:translateY(0);}
+/* Projects Grid */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:24px;
+  margin-bottom:60px;
+}
+.project-card{
+  background:var(--bg);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,0.05);
+  opacity:0;transform:translateY(30px);
+  transition:all .9s cubic-bezier(.2,.9,.2,1);
+}
+.project-card:nth-child(even){background:var(--light-gray);}
+.project-card.visible{opacity:1;transform:translateY(0);}
+.project-card img{width:100%;height:220px;object-fit:cover;transition:transform .6s ease;}
+.project-card:hover img{transform:scale(1.03);}
+.project-card .info{padding:16px;}
+.project-card .info h3{margin:0 0 8px;font-size:1.25rem;font-weight:700;}
+.project-card .info p{margin:0;color:var(--muted);line-height:1.5;text-align:justify;}
 
-  .project-panel .text{flex:1 1 0;min-width:280px;}
-  .project-panel .text h2{margin-top:0;font-size:2rem;font-weight:700;}
-  .project-panel .text p{color:var(--muted);line-height:1.6;text-align:justify;}
+/* Contact */
+#contact{padding:80px 12px;text-align:center;background:var(--bg);}
+#contact h3{font-size:1.4rem;margin-bottom:12px;font-weight:700;}
+#contact p{color:var(--muted);max-width:650px;margin:0 auto 24px;text-align:center;}
+.linkedin{
+  display:inline-block;width:56px;height:56px;background-image:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg');
+  background-size:contain;background-repeat:no-repeat;filter:brightness(0);transition:transform .22s ease,filter .22s ease;
+}
+.linkedin:hover{transform:scale(1.06);filter:invert(22%) sepia(91%) saturate(3112%) hue-rotate(202deg) brightness(97%) contrast(99%);}
 
-  .project-panel .image{flex:1 1 0;min-width:280px;overflow:hidden;border-radius:12px;}
-  .project-panel .image img{transition:transform .6s ease;}
-  .project-panel .image:hover img{transform:scale(1.03);}
-
-  /* Contact */
-  #contact{padding:80px 24px;text-align:center;background:var(--bg);}
-  #contact h3{font-size:1.4rem;margin-bottom:12px;font-weight:700;}
-  #contact p{color:var(--muted);max-width:650px;margin:0 auto 24px;text-align:center;}
-  .linkedin{
-    display:inline-block;width:56px;height:56px;background-image:url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg');
-    background-size:contain;background-repeat:no-repeat;filter:brightness(0);transition:transform .22s ease,filter .22s ease;
-  }
-  .linkedin:hover{transform:scale(1.06);filter:invert(22%) sepia(91%) saturate(3112%) hue-rotate(202deg) brightness(97%) contrast(99%);}
-
-  /* Responsive */
-  @media(max-width:900px){.project-panel{flex-direction:column;gap:32px;}}
-  @media(max-width:500px){.hero h1{font-size:2rem;}}
+/* Responsive */
+@media(max-width:500px){.hero h1{font-size:2rem;}}
 </style>
 </head>
 <body>
@@ -80,58 +87,48 @@
   <section class="hero">
     <h1>Designing Products — From Concept to Production</h1>
     <p>Specialized in taking concepts from initial design through NPI & NPD, ensuring seamless transition to large-scale manufacturing. Skilled in 3D CAD (NX), detailed engineering drawings, and tolerance stack analysis. I focus on DfMA to deliver robust, production-ready solutions.</p>
-    <button class="cta" onclick="document.querySelectorAll('.project-panel')[0].scrollIntoView({behavior:'smooth'})">Projects I've Worked With ↓</button>
+    <button class="cta" onclick="document.querySelector('.project-card').scrollIntoView({behavior:'smooth'})">Projects I've Worked With ↓</button>
   </section>
 
   <!-- Projects -->
-  <section id="projects">
-    <div class="project-panel">
-      <div class="text">
-        <h2>Dyson Coanda2x — AirSmooth2x</h2>
+  <section id="projects" class="projects-grid">
+    <div class="project-card">
+      <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/resolve//hair-care/hair-stylers/hs09/590_HS09_ATTACHMENT_AIRSMOOTH.jpg" alt="Dyson Coanda2x AirSmooth2x">
+      <div class="info">
+        <h3>Dyson Coanda2x — AirSmooth2x</h3>
         <p>Conducted tolerance stack analysis for assembly fitting and interaction. Implemented design improvements to enhance assembly robustness.</p>
       </div>
-      <div class="image">
-        <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/resolve//hair-care/hair-stylers/hs09/590_HS09_ATTACHMENT_AIRSMOOTH.jpg" alt="Dyson Coanda2x AirSmooth2x">
-      </div>
     </div>
 
-    <div class="project-panel">
-      <div class="text">
-        <h2>Dyson Airwrap — Blade Concentrator</h2>
+    <div class="project-card">
+      <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/973710-01.png" alt="Dyson Airwrap Blade Concentrator">
+      <div class="info">
+        <h3>Dyson Airwrap — Blade Concentrator</h3>
         <p>Led the design from concept through to mass production, owning the tolerance stack assembly to ensure proper fit and interaction with the Airwrap machine. Iterated designs to meet performance and reliability targets.</p>
       </div>
-      <div class="image">
-        <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/973710-01.png" alt="Dyson Airwrap Blade Concentrator">
-      </div>
     </div>
 
-    <div class="project-panel">
-      <div class="text">
-        <h2>Dyson Floor Dok™ Multi</h2>
+    <div class="project-card">
+      <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/services-and-support/tools/696/floor-dock-multi/Product_Leap_Accessories_PDP_Hero_Floor_dok_1-V2.jpg" alt="Dyson Floor Dok Multi">
+      <div class="info">
+        <h3>Dyson Floor Dok™ Multi</h3>
         <p>Ensured design optimized for manufacturability and assembly by performing tolerance stack analyses and investigative tests; focused on reliable interaction and serviceability.</p>
       </div>
-      <div class="image">
-        <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/services-and-support/tools/696/floor-dock-multi/Product_Leap_Accessories_PDP_Hero_Floor_dok_1-V2.jpg" alt="Dyson Floor Dok Multi">
-      </div>
     </div>
 
-    <div class="project-panel">
-      <div class="text">
-        <h2>Dyson Awkward Gap Tool</h2>
+    <div class="project-card">
+      <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/696/primary/972141-01.png" alt="Dyson Awkward Gap Tool">
+      <div class="info">
+        <h3>Dyson Awkward Gap Tool</h3>
         <p>Conducted tolerance stack analysis to ensure function and fit in constrained assembly spaces; iterated geometry to simplify tooling and assembly steps.</p>
       </div>
-      <div class="image">
-        <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/leap-petite-global/dynamic-media/vacuums/sticks/696/primary/972141-01.png" alt="Dyson Awkward Gap Tool">
-      </div>
     </div>
 
-    <div class="project-panel">
-      <div class="text">
-        <h2>Dyson Detangling Cleanerhead</h2>
+    <div class="project-card">
+      <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/972163-01.png" alt="Dyson Detangling Cleanerhead">
+      <div class="info">
+        <h3>Dyson Detangling Cleanerhead</h3>
         <p>Conducted tolerance stack analysis and design adjustments to improve engagement, wear behaviour, and long-term serviceability.</p>
-      </div>
-      <div class="image">
-        <img src="https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/images/products/primary/972163-01.png" alt="Dyson Detangling Cleanerhead">
       </div>
     </div>
   </section>
@@ -145,15 +142,15 @@
 </main>
 
 <script>
-  // Fade-in/reveal
-  const panels = document.querySelectorAll('.project-panel, .hero');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  // Fade-in on scroll
+  const cards = document.querySelectorAll('.project-card, .hero');
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
       if(entry.isIntersecting){entry.target.classList.add('visible');} 
       else{entry.target.classList.remove('visible');}
     });
   }, {threshold:0.15});
-  panels.forEach(p=>observer.observe(p));
+  cards.forEach(c=>observer.observe(c));
 
   // Header shrink on scroll
   const header = document.getElementById('header');
@@ -166,7 +163,7 @@
   });
 
   // Parallax on images
-  const images=document.querySelectorAll('.project-panel .image img');
+  const images=document.querySelectorAll('.project-card img');
   window.addEventListener('scroll',()=>{
     images.forEach(img=>{
       const rect=img.getBoundingClientRect();
